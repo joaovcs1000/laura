@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #F8D7E1; /* Fundo suave em rosa claro */
+    background-image: url(../images/planodefundo.jpg);
     color: #333;
     display: flex;
     justify-content: center;
