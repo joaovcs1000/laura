@@ -28,6 +28,7 @@ setInterval(updateCountdown, 1000);
 
 // Chama a função de atualização para iniciar a contagem
 updateCountdown();
+
 // Configuração da animação das partículas mágicas
 const canvas = document.getElementById('magicCanvas');
 const ctx = canvas.getContext('2d');
@@ -39,16 +40,16 @@ let particles = [];
 
 // Função para criar partículas mágicas
 function createParticles(x, y) {
-    const count = 50; // Aumentar o número de partículas para um efeito mais épico
+    const count = 100; // Aumentei o número de partículas para um efeito mais impactante
     for (let i = 0; i < count; i++) {
         particles.push({
             x: x,
             y: y,
-            size: Math.random() * 5 + 3, // Tamanho maior para partículas mais visíveis
-            speedX: Math.random() * 4 - 2, // Velocidade aleatória
-            speedY: Math.random() * 4 - 2,
+            size: Math.random() * 10 + 5, // Tamanho maior para partículas mais visíveis
+            speedX: Math.random() * 6 - 3, // Velocidade aleatória
+            speedY: Math.random() * 6 - 3,
             color: `hsl(${Math.random() * 360}, 100%, 80%)`, // Cor das partículas (mágicas)
-            life: Math.random() * 100 + 100 // Tempo de vida maior para mais movimento
+            life: Math.random() * 200 + 200 // Tempo de vida maior para mais movimento
         });
     }
 }
@@ -60,10 +61,10 @@ function updateParticles() {
     particles.forEach((particle, index) => {
         particle.x += particle.speedX;
         particle.y += particle.speedY;
-        particle.size *= 0.98; // Diminui o tamanho para simular a dissipação
+        particle.size *= 0.95; // Diminui o tamanho para simular a dissipação
 
         // Se a partícula "morrer", remove da lista
-        if (particle.size < 0.5 || particle.life <= 0) {
+        if (particle.size < 1 || particle.life <= 0) {
             particles.splice(index, 1);
         }
 
@@ -84,7 +85,7 @@ function startAnimation() {
     setInterval(() => {
         // Adiciona partículas em uma posição aleatória
         createParticles(Math.random() * canvas.width, Math.random() * canvas.height);
-    }, 100);
+    }, 50); // Partículas aparecem mais frequentemente para um efeito mais denso
 
     updateParticles();
 }
@@ -96,10 +97,5 @@ window.onload = function () {
     // Exibe o conteúdo após a animação de partículas
     setTimeout(() => {
         document.querySelector('.final-container').style.opacity = 1;
-    }, 5000); // Espera 5 segundos antes de mostrar o conteúdo
+    }, 7000); // Espera 7 segundos para um efeito mais longo antes de mostrar o conteúdo
 };
-
-
-
-
-  
