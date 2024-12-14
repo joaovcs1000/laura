@@ -37,13 +37,15 @@ body {
     opacity: 0; /* Inicialmente invisível para a animação */
     animation: fadeIn 10s forwards; /* Animação do texto */
     z-index: 10;
+    max-width: 750px; /* Limitar a largura para telas grandes */
+    width: 90%;
 }
 
 .message-box {
     background: #fff; /* Cor de fundo para a caixa de mensagem */
     border-radius: 20px;
     padding: 40px;
-    width: 90%;
+    width: 100%;
     max-width: 650px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -63,7 +65,7 @@ body {
 }
 
 .title {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #F06292; /* Rosa vibrante */
     margin-bottom: 20px;
@@ -73,13 +75,14 @@ body {
 }
 
 .message {
-    font-size: 1.3rem;
+    font-size: 1.5rem; /* Tamanho de fonte ajustado */
     line-height: 1.8;
     color: #555;
     margin-bottom: 10px;
     text-align: justify;
     opacity: 0;
     animation: fadeInMessage 3s 1s forwards; /* Animação com atraso para o texto */
+    max-width: 600px;
 }
 
 @keyframes magicalEffect {
@@ -117,5 +120,47 @@ body {
     }
     100% {
         opacity: 1;
+    }
+}
+
+/* Ajustes para telas menores, como iPhone 12 Pro (375px de largura) */
+@media (max-width: 767px) {
+    .title {
+        font-size: 1.6rem; /* Ajustando tamanho da fonte para título */
+    }
+
+    .message {
+        font-size: 1.2rem; /* Ajustando tamanho da fonte para a mensagem */
+    }
+
+    .message-box {
+        padding: 30px; /* Menos padding para telas pequenas */
+    }
+
+    .final-container {
+        padding: 10px;
+    }
+
+    #magicCanvas {
+        height: 100%; /* Garantir que o canvas ocupe toda a altura */
+    }
+}
+
+/* Ajustes para dispositivos muito pequenos, como o iPhone 12 Pro em modo vertical */
+@media (max-width: 375px) {
+    .title {
+        font-size: 1.4rem;
+    }
+
+    .message {
+        font-size: 1.1rem; /* Ajuste para telas muito pequenas */
+    }
+
+    .message-box {
+        padding: 20px;
+    }
+
+    .final-container {
+        padding: 5px;
     }
 }
