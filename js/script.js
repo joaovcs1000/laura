@@ -1,6 +1,6 @@
 // Função para a contagem regressiva
 function updateCountdown() {
-    const targetDate = new Date("December 15, 2024 00:00:00").getTime();
+    const targetDate = new Date("December 14, 2024 14:08:00").getTime();
     const currentDate = new Date().getTime();
     const timeRemaining = targetDate - currentDate;
 
@@ -28,5 +28,76 @@ setInterval(updateCountdown, 1000);
 
 // Chama a função de atualização para iniciar a contagem
 updateCountdown();
+// Configuração da animação das partículas mágicas
+const canvas = document.getElementById('magicCanvas');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+// Função para criar partículas mágicas
+function createParticles(x, y) {
+    const count = 30; // Número de partículas
+    for (let i = 0; i < count; i++) {
+        particles.push({
+            x: x,
+            y: y,
+            size: Math.random() * 5 + 1, // Tamanho das partículas
+            speedX: Math.random() * 3 - 1.5,
+            speedY: Math.random() * 3 - 1.5,
+            color: `hsl(${Math.random() * 360}, 100%, 80%)`, // Cor das partículas (rosa e dourado)
+            life: Math.random() * 50 + 50 // Tempo de vida das partículas
+        });
+    }
+}
+
+// Função para atualizar as partículas
+function updateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
+
+    particles.forEach((particle, index) => {
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+        particle.size *= 0.98; // Diminui o tamanho para simular a dissipação
+
+        // Se a partícula "morrer", remove da lista
+        if (particle.size < 0.2 || particle.life <= 0) {
+            particles.splice(index, 1);
+        }
+
+        // Desenha a partícula
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = particle.color;
+        ctx.fill();
+
+        particle.life--;
+    });
+
+    requestAnimationFrame(updateParticles);
+}
+
+// Função para iniciar a animação
+function startAnimation() {
+    setInterval(() => {
+        // Adiciona partículas em uma posição aleatória
+        createParticles(Math.random() * canvas.width, Math.random() * canvas.height);
+    }, 100);
+
+    updateParticles();
+}
+
+// Inicia a animação ao carregar a página
+window.onload = function () {
+    startAnimation();
+
+    // Exibe o conteúdo após a animação de partículas
+    setTimeout(() => {
+        document.querySelector('.final-container').style.opacity = 1;
+    }, 5000); // Espera 5 segundos antes de mostrar o conteúdo
+};
+
 
   
