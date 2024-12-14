@@ -63,10 +63,10 @@ body {
 }
 
 .title {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #F06292; /* Rosa vibrante */
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
     animation: titleAnimation 1s forwards;
