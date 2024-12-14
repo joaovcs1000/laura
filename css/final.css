@@ -76,7 +76,7 @@ body {
     font-size: 1.3rem;
     line-height: 1.8;
     color: #555;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     text-align: justify;
     opacity: 0;
     animation: fadeInMessage 3s 1s forwards; /* Animação com atraso para o texto */
