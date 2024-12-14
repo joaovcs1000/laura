@@ -15,6 +15,7 @@ body {
     height: 100vh;
     text-align: center;
     overflow: hidden;
+    position: relative;
 }
 
 #magicCanvas {
@@ -23,7 +24,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Para o canvas ficar atrás do conteúdo */
+    z-index: -1; /* Canvas vai ficar atrás do conteúdo */
 }
 
 .final-container {
@@ -34,7 +35,8 @@ body {
     width: 100%;
     padding: 20px;
     opacity: 0; /* Inicialmente invisível para a animação */
-    animation: fadeIn 8s forwards; /* Animação do texto */
+    animation: fadeIn 10s forwards; /* Animação do texto */
+    z-index: 10;
 }
 
 .message-box {
@@ -44,11 +46,20 @@ body {
     width: 90%;
     max-width: 650px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.message-box:hover {
-    transform: scale(1.03);
+.message-box:before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.4) 100%);
+    transform: translateX(-50%);
+    animation: magicalEffect 3s forwards;
 }
 
 .title {
@@ -57,6 +68,8 @@ body {
     color: #F06292; /* Rosa vibrante */
     margin-bottom: 20px;
     letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: titleAnimation 1s forwards;
 }
 
 .message {
@@ -65,10 +78,40 @@ body {
     color: #555;
     margin-bottom: 30px;
     text-align: justify;
+    opacity: 0;
+    animation: fadeInMessage 3s 1s forwards; /* Animação com atraso para o texto */
 }
 
-/* Animação para o fade-in do texto */
+@keyframes magicalEffect {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 0%;
+    }
+}
+
 @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes titleAnimation {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInMessage {
     0% {
         opacity: 0;
     }

@@ -39,16 +39,16 @@ let particles = [];
 
 // Função para criar partículas mágicas
 function createParticles(x, y) {
-    const count = 30; // Número de partículas
+    const count = 50; // Aumentar o número de partículas para um efeito mais épico
     for (let i = 0; i < count; i++) {
         particles.push({
             x: x,
             y: y,
-            size: Math.random() * 5 + 1, // Tamanho das partículas
-            speedX: Math.random() * 3 - 1.5,
-            speedY: Math.random() * 3 - 1.5,
-            color: `hsl(${Math.random() * 360}, 100%, 80%)`, // Cor das partículas (rosa e dourado)
-            life: Math.random() * 50 + 50 // Tempo de vida das partículas
+            size: Math.random() * 5 + 3, // Tamanho maior para partículas mais visíveis
+            speedX: Math.random() * 4 - 2, // Velocidade aleatória
+            speedY: Math.random() * 4 - 2,
+            color: `hsl(${Math.random() * 360}, 100%, 80%)`, // Cor das partículas (mágicas)
+            life: Math.random() * 100 + 100 // Tempo de vida maior para mais movimento
         });
     }
 }
@@ -63,7 +63,7 @@ function updateParticles() {
         particle.size *= 0.98; // Diminui o tamanho para simular a dissipação
 
         // Se a partícula "morrer", remove da lista
-        if (particle.size < 0.2 || particle.life <= 0) {
+        if (particle.size < 0.5 || particle.life <= 0) {
             particles.splice(index, 1);
         }
 
@@ -98,6 +98,8 @@ window.onload = function () {
         document.querySelector('.final-container').style.opacity = 1;
     }, 5000); // Espera 5 segundos antes de mostrar o conteúdo
 };
+
+
 
 
   
