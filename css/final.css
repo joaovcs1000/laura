@@ -8,6 +8,9 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-image: url(../images/planodefundo.jpg);
+    background-position: center; /* Centraliza a imagem de fundo */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-size: cover; /* Faz a imagem cobrir toda a tela sem distorcer */
     color: #333;
     display: flex;
     justify-content: center;
@@ -17,6 +20,7 @@ body {
     overflow: hidden;
     position: relative;
 }
+
 
 #magicCanvas {
     position: absolute;
