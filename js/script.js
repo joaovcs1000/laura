@@ -1,6 +1,6 @@
 // Função para a contagem regressiva
 function updateCountdown() {
-    const targetDate = new Date("December 14, 2024 14:08:00").getTime();
+    const targetDate = new Date("December 14, 2024 14:34:00").getTime();
     const currentDate = new Date().getTime();
     const timeRemaining = targetDate - currentDate;
 
