@@ -1,0 +1,134 @@
+/* Resetando algumas configurações para garantir um estilo limpo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #F8D7E1; /* Fundo suave em rosa claro */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.final-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+}
+
+.message-box {
+    background: #fff; /* Cor de fundo para a caixa de mensagem */
+    border-radius: 20px;
+    padding: 40px;
+    width: 80%;
+    max-width: 650px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.message-box:hover {
+    transform: scale(1.03); /* Animação de zoom suave */
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #F06292; /* Rosa vibrante */
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.message {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.back-button, .social-link {
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #F06292;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button:hover, .social-link:hover {
+    background-color: #FF4081; /* Cor de hover para os botões */
+    transform: scale(1.05); /* Leve animação ao passar o mouse */
+}
+
+.social-link {
+    background-color: #0088cc; /* Cor específica para o link do Instagram */
+}
+
+.social-link:hover {
+    background-color: #005f77; /* Cor de hover para o Instagram */
+}
+
+@media (max-width: 768px) {
+    .message-box {
+        padding: 25px;
+        width: 90%;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .message {
+        font-size: 1.1rem;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .back-button, .social-link {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .message-box {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .message {
+        font-size: 1rem;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    .back-button, .social-link {
+        width: 100%;
+    }
+}
